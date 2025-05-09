@@ -3,8 +3,8 @@ import java.lang.*;
 
 public class Main{
 
-	String calculator() {
-			double a, b;
+	static String calculator() {
+			double a, b, result;
 			System.out.println("Enter two numbers:");
 			Scanner inp = new Scanner(System.in);
 			a = inp.nextDouble();
@@ -12,7 +12,7 @@ public class Main{
 
 			System.out.println("Enter operator:");
 			inp.nextLine();
-			op = inp.nextLine();
+			String op = inp.nextLine();
 
 			if(op.equals("+")) {
 				System.out.println(a + b);
@@ -30,15 +30,16 @@ public class Main{
 				System.out.println("Invalid operation!");
 				return "";
 			}
-			return String.format ("%lf %s %lf = %lf", a, op, b, result);
+			return String.format ("%f %s %f = %f\n", a, op, b, result);
 	}
 
-	String matCalc() {
+	static String matCalc() {
 		return "";
 	}
 
 	public static void main(String[] args) {
 		String history = "";
+		Scanner inp = new Scanner(System.in);
 		while(true) {
 			System.out.println(
 					"Enter \"h\" for history," +
@@ -46,9 +47,7 @@ public class Main{
 					"\"mat\" for matrix operation," +
 					"\"x\" to exit."
 					);
-			Scanner inp = new Scanner(System.in);
 			String operation = inp.nextLine();
-			inp.close();
 			if (operation.equals("h")) {
 				if (history.equals("")) {
 					System.out.println("Nothing calculated!");
@@ -65,6 +64,7 @@ public class Main{
 				System.out.println("Invalid operation!");
 			}
 		}
+		inp.close();
 	}
 }
 
